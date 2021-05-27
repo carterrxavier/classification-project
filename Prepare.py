@@ -26,13 +26,31 @@ def prep_for_model(df):
     i_type = pd.get_dummies(df.internet_service_type, drop_first=True)
     p_type = pd.get_dummies(df.payment_type, drop_first=True)
     
-    df = pd.concat([df,c_type,i_type,p_type] , axis=1)
     
+    df = pd.concat([df,c_type,i_type,p_type] , axis=1)
+
       
     df = df.drop(columns=(['internet_service_type_id', 'payment_type_id','contract_type_id', 'contract_type','internet_service_type','payment_type']))
-
-
+    
+    
+    
     return df
+
+def telco_split(df):
+    '''
+    This function take in the telco_churn data acquired,
+    performs a split and stratifies churn column.
+    Returns train, validate, and test dfs.
+    '''
+    train_validate, test = train_test_split(df, test_size=.2, 
+                                        random_state=738, 
+                                        stratify=df.churn)
+    train, validate = train_test_split(train_validate, test_size=.3, 
+                                   random_state=345, 
+                                   stratify=train_validate.churn)
+    return train, validate, test
+
+
     
     
 
