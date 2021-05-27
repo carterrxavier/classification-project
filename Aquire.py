@@ -24,6 +24,7 @@ def get_telco_data():
         on payment_types.payment_type_id = customers.payment_type_id'''
         
         df = pd.read_sql(query,get_connection('telco_churn'))
+        df = df.loc[:, ~df.columns.duplicated()]
         df.to_csv('telco_churn.csv', index=False)
         return df
         

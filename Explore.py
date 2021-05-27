@@ -10,5 +10,6 @@ def get_uni_stats(original_df):
         sns.histplot(data=original_df ,x = i, shrink = 0.75)
         plt.show()
         
-def get_heat_map(original_df )
+def get_heat_map(original_df):
+    return 0
         
