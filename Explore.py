@@ -40,6 +40,18 @@ def get_chi_test(chi_list, df, alpha):
         
 def get_t_test(t_var, df, alpha):
     for i in t_var:
+        t, p = stats.ttest_ind(df[i],df.churn, equal_var=False)
+        print('Null Hypothesis: as {} increases overtime ,churn is not affected'.format(i))
+        print('Alternative hypothesis: as {} increases overtime ,churn is affected'.format(i))
+        if p/2 < alpha:
+            print('p value {} is less than alpha {} , we reject our null hypothesis'.format(p,alpha))
+        else:
+            print('p value {} is not less than alpha {} , we  fail to reject our null hypothesis'.format(p,alpha))
+        print('-------------------------------------')
+                
+
+
+        
         
         
         

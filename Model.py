@@ -45,7 +45,7 @@ def test_results(model, X_test, y_test, details=False):
         print('---------- More Details ------------')
         print('-----Test Classification report----')
         print(pd.DataFrame(classification_report(y_test, t_pred, output_dict =True)))
-        print('-----Train Confusion Matrix------')
+        print('-----Test Confusion Matrix------')
         print(pd.DataFrame(confusion_matrix(t_pred, y_test), index=Row_labels, columns=Col_labels))
         
 def get_customer_predictions(model, dataframe , X_var, churn_status = 0, high_risk_percentage = 0):
