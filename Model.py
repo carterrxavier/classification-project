@@ -1,25 +1,9 @@
 import pandas as pd
 import numpy as np
-import Aquire
-import Prepare
-import Explore
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-
-import warnings 
+from sklearn.metrics import classification_report,confusion_matrix,recall_score, precision_score
+import warnings
 warnings.filterwarnings('ignore')
 
-import graphviz
-from sklearn.dummy import DummyClassifier
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import export_graphviz
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import recall_score, precision_score
 
 
 def train_validate_results(model, X_train, y_train, X_validate, y_validate, details=False):

@@ -18,9 +18,11 @@ def prep_for_model(df):
     df['total_charges'] = pd.to_numeric(df['total_charges'],errors='coerce')
     df['total_charges'].fillna(0)
 
-    columns = ['gender', 'partner', 'dependents', 'phone_service', 'multiple_lines', 'online_security', 'online_backup', 'device_protection','tech_support','streaming_tv', 'streaming_movies', 'paperless_billing', 'churn']
+    columns = ['partner', 'dependents', 'phone_service', 'multiple_lines', 'online_security', 'online_backup', 'device_protection','tech_support','streaming_tv', 'streaming_movies', 'paperless_billing', 'churn']
     for cols in columns:
-        df[cols] = np.where(df[cols] == ('Yes' or 'Female'), 1, 0)
+        df[cols] = np.where(df[cols] == 'Yes', 1, 0)
+    df['gender'] = np.where(df['gender'] == 'Male',1,0)
+    
 
     c_type = pd.get_dummies(df.contract_type, drop_first=True)
     i_type = pd.get_dummies(df.internet_service_type, drop_first=True)

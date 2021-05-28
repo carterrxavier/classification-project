@@ -27,4 +27,10 @@ def get_telco_data():
         df = df.loc[:, ~df.columns.duplicated()]
         df.to_csv('telco_churn.csv', index=False)
         return df
-        
+
+def summerize_df(df):
+    print('-----shape------')
+    print('{} rows and {} columns'.format(df.shape[0], df.shape[1]))
+    print('---info---')
+    print(df.info())
+    print(df.describe())
