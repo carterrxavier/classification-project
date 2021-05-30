@@ -19,6 +19,7 @@ def train_validate_results(model, X_train, y_train, X_validate, y_validate, deta
     print('Train model Accuracy: {:.5f} % | Validate model accuracy: {:.5f} % '.format(model.score(X_train, y_train) * 100, model.score(X_validate, y_validate) * 100))
     print('Train model Recall: {:.5f} % | Validate model Recall: {:.5f} %'.format(recall_score(y_train, t_pred,pos_label=0) * 100, recall_score(y_validate, v_pred, pos_label=0) * 100))
     print('Train model Precision: {:.5f} % | Validate model Precision: {:.5f} %'.format(precision_score(y_train, t_pred,pos_label=0) * 100, precision_score(y_validate, v_pred,pos_label=0) * 100))
+    print('------------------------------------------------------------------------')
     if details == True:
         Col_labels = ['Actual No Churn', 'Actual Churn ']
         Row_labels = ['Pred No Churn', 'Pred Churn']
@@ -48,7 +49,7 @@ def test_results(model, X_test, y_test, details=False):
         print('-----Test Confusion Matrix------')
         print(pd.DataFrame(confusion_matrix(t_pred, y_test), index=Row_labels, columns=Col_labels))
         
-def get_customer_predictions(model, dataframe , X_var, churn_status = 0, high_risk_percentage = 0):
+def get_customer_predictions(model, dataframe , X_var, churn_status = None, high_risk_percentage = 0):
     
     '''
     returns highrisk customer dataframe based on there churn status and if their probability of churning is higher than the high risk percentage specified
@@ -68,8 +69,11 @@ def get_customer_predictions(model, dataframe , X_var, churn_status = 0, high_ri
     pred_churn_df['churn probability'] = churn_prob
     
     
-    
-    return pred_churn_df[(pred_churn_df['churn'] == churn_status) & (pred_churn_df['churn probability'] >= high_risk_percentage)].sort_values(by='churn probability', ascending=False)
+    if churn_status == None:
+        return pred_churn_df[pred_churn_df['churn probability'] >= high_risk_percentage]
+  
+    else:
+        return pred_churn_df[(pred_churn_df['churn'] == churn_status) & (pred_churn_df['churn probability'] >= high_risk_percentage)]
 
 
 

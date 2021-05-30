@@ -34,3 +34,4 @@ def summerize_df(df):
     print('---info---')
     print(df.info())
     print(df.describe())
+    print (df[ (df.notnull()) & (df!=u'') ].index)

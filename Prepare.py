@@ -45,10 +45,10 @@ def telco_split(df):
     Returns train, validate, and test dfs.
     '''
     train_validate, test = train_test_split(df, test_size=.2, 
-                                        random_state=738, 
+                                        random_state=765, 
                                         stratify=df.churn)
     train, validate = train_test_split(train_validate, test_size=.3, 
-                                   random_state=345, 
+                                   random_state=231, 
                                    stratify=train_validate.churn)
     return train, validate, test
 

@@ -9,18 +9,18 @@ import scipy.stats as stats
 def get_cat_stats(df):
     df = df.drop(columns = ['customer_id','tenure','monthly_charges','total_charges','internet_service_type_id', 'payment_type_id','contract_type_id'])
     for i in df.columns:
-        sns.countplot(data=df, hue=i , x = 'churn') 
+        sns.countplot(data=df, hue=i , x = 'churn' , palette = "flare") 
         plt.show()
         
 def get_con_stats(df):
     df = df.drop(columns = ['senior_citizen','customer_id','gender', 'partner', 'dependents', 'phone_service', 'multiple_lines', 'online_security', 'online_backup', 'device_protection','tech_support','streaming_tv', 'streaming_movies', 'paperless_billing', 'One year', 'Two year', 'Fiber optic', 'None', 'Credit card (automatic)','Mailed check', 'Electronic check'])
     for i in df.columns:
-        sns.histplot(data=df , x=i, hue='churn')
+        sns.histplot(data=df , x=i, hue='churn', palette = 'flare')
         plt.show()
         
 def get_churn_heatmap(binary_df):
     plt.figure(figsize=(8,12))
-    churn_heatmap = sns.heatmap(binary_df.corr()[['churn']].sort_values(by='churn', ascending=False), vmin=-.5, vmax=.5, annot=True)
+    churn_heatmap = sns.heatmap(binary_df.corr()[['churn']].sort_values(by='churn', ascending=False), vmin=-.5, vmax=.5, annot=True, cmap = "flare_r")
     churn_heatmap.set_title('Feautures  Correlating with Churn')
     
     return churn_heatmap
