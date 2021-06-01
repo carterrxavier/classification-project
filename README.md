@@ -98,7 +98,7 @@ ___
 
 You will need your own env file with database credentials along with all the necessary files listed below to run my final project notebook. 
 - [x] Read this README.md
-- [ ] Download the aquire.py, prepare.py, and final_report.ipynb files into your working directory
+- [ ] Download the Aquire.py, Prepare.py, Model.py, Explore.py and final_report.ipynb files into your working directory
 - [ ] Add your own env file to your directory. (user, password, host)
 - [ ] Run the final_report.ipynb notebook
 
