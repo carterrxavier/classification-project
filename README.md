@@ -82,19 +82,13 @@ ___
 ___
 
 ##### Plan -> Acquire -> Prepare -> Explore -> **Model ->** Deliver
-> - Establish a baseline accuracy to determine if having a model is better than no model and train and compare at least 3 different models. Document these steps well.
+> - Establish a baseline accuracy to determine if having a model is better well.
 > - Train (fit, transform, evaluate) multiple models, varying the algorithm and/or hyperparameters you use.
 > - Compare evaluation metrics across all the models you train and select the ones you want to evaluate using your validate dataframe.
-> - Feature Selection (after initial iteration through pipeline): Are there any variables that seem to provide limited to no additional information? If so, remove them.
 > - Based on the evaluation of the models using the train and validate datasets, choose the best model to try with the test data, once.
 > - Test the final model on the out-of-sample data (the testing dataset), summarize the performance, interpret and document the results.
 ___
 
-##### Plan -> Acquire -> Prepare -> Explore -> Model -> **Deliver**
-> - Introduce myself and my project goals at the very beginning of my notebook walkthrough.
-> - Summarize my findings at the beginning like I would for an Executive Summary. (Don't throw everything out that I learned from Storytelling) .
-> - Walk Codeup Data Science Team through the analysis I did to answer my questions and that lead to my findings. (Visualize relationships and Document takeaways.) 
-> - Clearly call out the questions and answers I am analyzing as well as offer insights and recommendations based on my findings.
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
