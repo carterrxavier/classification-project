@@ -35,6 +35,11 @@ def train_validate_results(model, X_train, y_train, X_validate, y_validate, deta
 
         
 def test_results(model, X_test, y_test, details=False):
+    '''
+    this function prints the accuracy, recall and precision of the model passed in
+    if details = True, it will display the classification report and the confusion matrices for train and validate dataframes
+    
+    '''
     model.fit(X_test, y_test)
     t_pred = model.predict(X_test)
     print('Test model Accuracy: {:.5f} %'.format(model.score(X_test, y_test) * 100))
