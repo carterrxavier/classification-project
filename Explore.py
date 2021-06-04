@@ -28,7 +28,7 @@ def get_churn_heatmap(binary_df):
     '''
     This method will return a heatmap of all variables and there relation to churn
     '''
-    plt.figure(figsize=(8,12))
+    plt.figure(figsize=(15,12))
     churn_heatmap = sns.heatmap(binary_df.corr()[['churn']].sort_values(by='churn', ascending=False), vmin=-.5, vmax=.5, annot=True, cmap = "icefire")
     churn_heatmap.set_title('Feautures  Correlating with Churn')
     
@@ -59,7 +59,7 @@ def get_t_test(t_var, df, alpha):
         t, p = stats.ttest_ind(df[i],df.churn, equal_var=False)
         print('Null Hypothesis: {} is not correlated to churn '.format(i))
         print('Alternative hypothesis:  {} is correlated to churn '.format(i))
-        if p/2 < alpha:
+        if p < alpha:
             print('p value {} is less than alpha {} , we reject our null hypothesis'.format(p,alpha))
         else:
             print('p value {} is not less than alpha {} , we  fail to reject our null hypothesis'.format(p,alpha))

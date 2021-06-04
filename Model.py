@@ -34,13 +34,13 @@ def train_validate_results(model, X_train, y_train, X_validate, y_validate, deta
         print(pd.DataFrame(confusion_matrix(v_pred, y_validate), index=Row_labels, columns=Col_labels))
 
         
-def test_results(model, X_test, y_test, details=False):
+def test_results(model, X_test, y_test, X_train, y_train, details=False):
     '''
     this function prints the accuracy, recall and precision of the model passed in
     if details = True, it will display the classification report and the confusion matrices for train and validate dataframes
     
     '''
-    model.fit(X_test, y_test)
+    model.fit(X_train, y_train)
     t_pred = model.predict(X_test)
     print('Test model Accuracy: {:.5f} %'.format(model.score(X_test, y_test) * 100))
     print('Test model Recall: {:.5f} % '.format(recall_score(y_test, t_pred,pos_label=0) * 100))
