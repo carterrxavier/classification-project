@@ -10,7 +10,7 @@ def get_cat_stats(df):
     '''
     This method will return the count plots of the catagorical variables in relation to churn. 
     '''
-    df = df.drop(columns = ['customer_id','tenure','monthly_charges','total_charges','internet_service_type_id', 'payment_type_id','contract_type_id'])
+    df = df.drop(columns = ['customer_id','tenure','monthly_charges','total_charges'])
     for i in df.columns:
         sns.countplot(data=df, hue=i , x = 'churn' , palette = "tab10") 
         plt.show()
